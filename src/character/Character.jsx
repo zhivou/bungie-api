@@ -1,8 +1,23 @@
 import React, { Component } from 'react';
 import { Container, Card, Icon, Image, Grid} from 'semantic-ui-react'
 import './Character.scss';
+import { getAllEquippedItems } from '../exports/bungie_api_calls';
 
 class Character extends Component {
+	constructor(props){
+		super(props);
+
+		this.state = {
+			loading: true,
+			allEquippedItems: null
+		};
+	}
+
+	componentDidMount() {
+		this.setState({ loading: true });
+		this.setState({launches: getAllEquippedItems()});
+	}
+
   render(){
     return (
             <Container textAlign="center" centered className="main-character">
