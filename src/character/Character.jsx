@@ -1,21 +1,39 @@
 import React, { Component } from 'react';
 import { Container, Card, Icon, Image, Grid} from 'semantic-ui-react'
 import './Character.scss';
-import { getAllEquippedItems } from '../exports/bungie_api_calls';
+import { getAllEquippedItems } from '../exports/bungie_api_calls.js';
+const axios = require('axios');
+
+
 
 class Character extends Component {
 	constructor(props){
 		super(props);
 
 		this.state = {
-			loading: true,
 			allEquippedItems: null
 		};
 	}
 
 	componentDidMount() {
-		this.setState({ loading: true });
-		this.setState({launches: getAllEquippedItems()});
+
+
+		axios.get(`${getAllEquippedItems()}`, {
+			headers: {
+				"X-API-Key": tempAPIKey,
+				"Connection": "keep-alive",
+				"Content-Type": "application/json"
+			},
+			params: {
+				"components": "205"
+			}
+		})
+				.then( res => {
+					this.setState({ allEquippedItems: res.data.Response.equipment.data.items} );
+				})
+				.catch(function (error) {
+					console.log(error);
+				});
 	}
 
   render(){
