@@ -39,17 +39,17 @@ class Manifest extends Component {
     if (!this.state.loading) {
       return (
           <div>
-            <img src={getIcon(this.state.chartData.displayProperties.icon)} alt=""/>
+            <img src={getIcon(this.state.item.displayProperties.icon)} alt=""/>
           </div>
       )
     }
     else {
       return (
-        <Segment className="loaderWrapper" centered >
+        <div>
           <Dimmer active>
-            <Loader size='large'>Loading</Loader>
+            <Loader size='small'>Loading</Loader>
           </Dimmer>
-        </Segment>
+        </div>
       )
     }
   }
