@@ -1,3 +1,17 @@
 .main-character {
 	padding-top: 100px;
 }
+
+.card-character {
+	background: #181D25 !important;
+}
+
+.ui.card>.content>.header {
+	color: rgb(255, 206, 31) !important;
+	font-size: 24px !important;
+}
+
+.ui.card>.content>.description {
+	color: whitesmoke !important;
+	font-size: 16px !important;
+}

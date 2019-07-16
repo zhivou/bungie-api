@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Card, Icon, Image, Grid} from 'semantic-ui-react'
+import { Card, Container, Segment, Grid, Dimmer, Loader, Image } from 'semantic-ui-react'
 import './Character.scss';
 import { getAllEquippedItems } from '../exports/bungie_api_calls.js';
 const axios = require('axios');
@@ -11,6 +11,7 @@ class Character extends Component {
 		super(props);
 
 		this.state = {
+			loading: true,
 			allEquippedItems: null
 		};
 	}
@@ -29,7 +30,7 @@ class Character extends Component {
 			}
 		})
 				.then( res => {
-					this.setState({ allEquippedItems: res.data.Response.equipment.data.items} );
+					this.setState({ allEquippedItems: res.data.Response.equipment.data.items, loading: false } );
 				})
 				.catch(function (error) {
 					console.log(error);
@@ -37,26 +38,51 @@ class Character extends Component {
 	}
 
   render(){
-    return (
-            <Container textAlign="center" centered className="main-character">
-	            <Grid centered>
-	    	      	<Card>
-				    			<Card.Content>
-				      			<Card.Header>Character Class</Card.Header>
-				      				<Card.Description>
-				        				Matthew is a musician living in Nashville.
-				      				</Card.Description>
-				    				</Card.Content>
-				    			<Card.Content extra>
-				      			<a>
-											<Icon name='user' />
-											22 Friends
-				      			</a>
-				    			</Card.Content>
-				  			</Card>
-			  			</Grid>
-            </Container>
-    )
+		if (!this.state.loading) {
+			return (
+					<Container textAlign="center" centered className="main-character">
+						<Grid centered>
+							<Card className="card-character">
+								<Card.Content>
+									<Card.Header>Character Class</Card.Header>
+									<Card.Description>
+										<div>
+											{this.state.allEquippedItems.map(item => (
+													<ul key={item.itemHash}>
+														<li className="failedText">
+															{item.itemHash}
+														</li>
+													</ul>
+											))
+											}
+										</div>
+									</Card.Description>
+								</Card.Content>
+							</Card>
+						</Grid>
+					</Container>
+			)
+		}
+		else {
+			return (
+					<Container textAlign="center" centered className="main-character">
+						<Grid centered>
+							<Card className="card-character">
+								<Card.Content>
+									<Card.Header>Character Class</Card.Header>
+									<Card.Description>
+											<Segment className="loaderWrapper" centered >
+												<Dimmer active>
+													<Loader size='large'>Loading</Loader>
+												</Dimmer>
+											</Segment>
+									</Card.Description>
+								</Card.Content>
+							</Card>
+						</Grid>
+					</Container>
+			);
+		}
   }
 }
 
