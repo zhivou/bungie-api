@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Card, Container, Segment, Grid, Dimmer, Loader, Image } from 'semantic-ui-react'
 import './Character.scss';
-import { getAllEquippedItems } from '../exports/bungie_api_calls.js';
+import { getAllEquippedItems, tempAPIKey } from '../exports/bungie_api_calls.js';
+import Manifest from './Manifest'
 const axios = require('axios');
 
 
@@ -17,7 +18,7 @@ class Character extends Component {
 	}
 
 	componentDidMount() {
-
+		const tempAPIKey = "acab7b216915446eb87946ea8e4ea6fc"; //Remove before pushing
 
 		axios.get(`${getAllEquippedItems()}`, {
 			headers: {
@@ -50,7 +51,7 @@ class Character extends Component {
 											{this.state.allEquippedItems.map(item => (
 													<ul key={item.itemHash}>
 														<li className="failedText">
-															{item.itemHash}
+															<Manifest id={item.itemHash} />
 														</li>
 													</ul>
 											))
@@ -71,11 +72,13 @@ class Character extends Component {
 								<Card.Content>
 									<Card.Header>Character Class</Card.Header>
 									<Card.Description>
+										<div className="loader-holder">
 											<Segment className="loaderWrapper" centered >
 												<Dimmer active>
 													<Loader size='large'>Loading</Loader>
 												</Dimmer>
 											</Segment>
+										</div>
 									</Card.Description>
 								</Card.Content>
 							</Card>
