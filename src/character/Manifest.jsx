@@ -39,6 +39,7 @@ class Manifest extends Component {
     if (!this.state.loading) {
       return (
           <div>
+            <div>{this.state.item.itemTypeAndTierDisplayName}</div>
             <img src={getIcon(this.state.item.displayProperties.icon)} alt=""/>
           </div>
       )
