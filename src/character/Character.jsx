@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Card, Container, Grid, Loader, Modal } from 'semantic-ui-react'
+import { Loader, Modal } from 'semantic-ui-react'
 import './Character.scss';
 import { getAllEquippedItems, tempAPIKey } from '../exports/bungie_api_calls.js';
 import Manifest from './Manifest'
+import Background from './pics/inventory_with_char.png'
 const axios = require('axios');
 
 
@@ -38,25 +39,17 @@ class Character extends Component {
   render(){
 		if (!this.state.loading) {
 			return (
-					<Container textAlign="center" className="main-character">
-						<Grid centered>
-							<Card className="card-character">
-								<Card.Content>
-									<Card.Header>Character Class</Card.Header>
-									<Card.Description>
-										<div>
-											{this.state.allEquippedItems.map(item => (
-													<div key={item.itemHash}>
-															<Manifest id={item.itemHash} />
-													</div>
-											))
-											}
-										</div>
-									</Card.Description>
-								</Card.Content>
-							</Card>
-						</Grid>
-					</Container>
+					<div>
+						<div key={this.state.allEquippedItems[0].itemHash}>
+							<div className="container" id="imgContainer">
+								<img src={Background} alt="background" id="background"/>
+								<Manifest item_id={this.state.allEquippedItems[0].itemHash} className="leftMain"/>
+								<Manifest item_id={this.state.allEquippedItems[1].itemHash} className="leftSecond"/>
+								<Manifest item_id={this.state.allEquippedItems[2].itemHash} className="leftPower"/>
+								<Manifest item_id={this.state.allEquippedItems[8].itemHash} className="helper"/>
+							</div>
+						</div>
+					</div>
 			)
 		}
 		else {

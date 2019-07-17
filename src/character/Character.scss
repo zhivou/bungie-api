@@ -19,3 +19,54 @@
 .loader-holder {
 	height: 100px;
 }
+
+#imgContainer {
+
+}
+
+#background {
+	position: absolute;
+	width: 800px;
+	border: solid 1px rgb(255, 206, 31);
+	display: block;
+	margin-left: 20%;
+	margin-top: 50px;
+	z-index: 5;
+}
+
+.leftMain {
+	position: absolute;
+	width: 62px;
+	left: 65px;
+	top: 147px;
+	margin-left: 20%;
+	margin-top: 50px;
+}
+
+.leftSecond {
+	position: absolute;
+	width: 62px;
+	left: 65px;
+	top: 233px;
+	margin-left: 20%;
+	margin-top: 50px;
+}
+
+.leftPower {
+	position: absolute;
+	width: 62px;
+	left: 65px;
+	top: 319px;
+	margin-left: 20%;
+	margin-top: 50px;
+}
+
+.helper {
+	position: absolute;
+	width: 62px;
+	left: 65px;
+	top: 405px;
+	margin-left: 20%;
+	margin-top: 50px;
+}
+

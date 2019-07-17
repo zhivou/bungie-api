@@ -7,7 +7,7 @@ class Manifest extends Component {
   constructor(props){
     super(props);
     this.state = {
-      id:props.id,
+      item_id:props.item_id,
       loading: true,
       item: {}
     }
@@ -19,7 +19,7 @@ class Manifest extends Component {
   };
 
   componentDidMount() {
-    axios.get(`${getItemFromManifest(this.state.id)}`, {
+    axios.get(`${getItemFromManifest(this.state.item_id)}`, {
       headers: {
         "Content-Type": "application/json"
       }
@@ -38,8 +38,7 @@ class Manifest extends Component {
     if (!this.state.loading) {
       return (
           <div>
-            <div>{this.state.item.itemTypeAndTierDisplayName}</div>
-            <img src={getIcon(this.state.item.displayProperties.icon)} alt=""/>
+            <img src={getIcon(this.state.item.displayProperties.icon)} alt="" className={ this.props.className }/>
           </div>
       )
     }
