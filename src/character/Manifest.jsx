@@ -21,7 +21,6 @@ class Manifest extends Component {
   componentDidMount() {
     axios.get(`${getItemFromManifest(this.state.id)}`, {
       headers: {
-        "Connection": "keep-alive",
         "Content-Type": "application/json"
       }
     })

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Container, Segment, Grid, Dimmer, Loader, Modal } from 'semantic-ui-react'
+import { Card, Container, Grid, Loader, Modal } from 'semantic-ui-react'
 import './Character.scss';
 import { getAllEquippedItems, tempAPIKey } from '../exports/bungie_api_calls.js';
 import Manifest from './Manifest'
@@ -18,12 +18,9 @@ class Character extends Component {
 	}
 
 	componentDidMount() {
-		const tempAPIKey = "acab7b216915446eb87946ea8e4ea6fc"; //Remove before pushing
-
 		axios.get(`${getAllEquippedItems()}`, {
 			headers: {
 				"X-API-Key": tempAPIKey,
-				"Connection": "keep-alive",
 				"Content-Type": "application/json"
 			},
 			params: {
@@ -41,7 +38,7 @@ class Character extends Component {
   render(){
 		if (!this.state.loading) {
 			return (
-					<Container textAlign="center" centered className="main-character">
+					<Container textAlign="center" className="main-character">
 						<Grid centered>
 							<Card className="card-character">
 								<Card.Content>

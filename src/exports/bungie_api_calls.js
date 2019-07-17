@@ -21,4 +21,3 @@ export function getItemFromManifest(id) {
 export function getIcon(link) {
   return `${baseUrl}/${link}`;
 }
-
