@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getItemFromManifest, tempAPIKey, getIcon } from "../exports/bungie_api_calls";
-import {Dimmer, Loader, Segment } from "semantic-ui-react";
+import {Loader, Modal } from "semantic-ui-react";
+import ItemInfo from "./ItemInfo"
 const axios = require('axios');
 
 class Manifest extends Component {
@@ -37,17 +38,18 @@ class Manifest extends Component {
   render(){
     if (!this.state.loading) {
       return (
-          <div>
-            <img src={getIcon(this.state.item.displayProperties.icon)} alt="" className={ this.props.className }/>
-          </div>
+            <ItemInfo
+                trigger = { <img src={getIcon(this.state.item.displayProperties.icon)} alt="" className={ this.props.className }/> }
+                item = {this.state.item}
+            />
       )
     }
     else {
       return (
         <div>
-          <Dimmer active>
-            <Loader size='small'>Loading</Loader>
-          </Dimmer>
+          <Modal open>
+            <Loader size='massive'>Loading icons...</Loader>
+          </Modal>
         </div>
       )
     }

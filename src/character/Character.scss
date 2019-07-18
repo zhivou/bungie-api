@@ -31,7 +31,7 @@
 	display: block;
 	margin-left: 20%;
 	margin-top: 50px;
-	z-index: 5;
+	z-index: -5;
 }
 
 .leftMain {
@@ -65,8 +65,61 @@
 	position: absolute;
 	width: 62px;
 	left: 65px;
-	top: 405px;
+	top: 403px;
 	margin-left: 20%;
 	margin-top: 50px;
 }
 
+.rightHead {
+	position: absolute;
+	width: 62px;
+	left: 661px;
+	top: 63px;
+	margin-left: 20%;
+	margin-top: 50px;
+}
+
+.rightGloves {
+	position: absolute;
+	width: 62px;
+	left: 661px;
+	top: 147px;
+	margin-left: 20%;
+	margin-top: 50px;
+}
+
+.rightBody {
+	position: absolute;
+	width: 62px;
+	left: 661px;
+	top: 233px;
+	margin-left: 20%;
+	margin-top: 50px;
+}
+
+.rightBoots {
+	position: absolute;
+	width: 62px;
+	left: 661px;
+	top: 318px;
+	margin-left: 20%;
+	margin-top: 50px;
+}
+
+.rightCloak {
+	position: absolute;
+	width: 62px;
+	left: 661px;
+	top: 404px;
+	margin-left: 20%;
+	margin-top: 50px;
+}
+
+.classIcon {
+	position: absolute;
+	width: 102px;
+	left: 45px;
+	top: 26px;
+	margin-left: 20%;
+	margin-top: 50px;
+}

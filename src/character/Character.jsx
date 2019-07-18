@@ -43,10 +43,18 @@ class Character extends Component {
 						<div key={this.state.allEquippedItems[0].itemHash}>
 							<div className="container" id="imgContainer">
 								<img src={Background} alt="background" id="background"/>
+								<Manifest item_id={this.state.allEquippedItems[11].itemHash} className="classIcon"/>
+
 								<Manifest item_id={this.state.allEquippedItems[0].itemHash} className="leftMain"/>
 								<Manifest item_id={this.state.allEquippedItems[1].itemHash} className="leftSecond"/>
 								<Manifest item_id={this.state.allEquippedItems[2].itemHash} className="leftPower"/>
 								<Manifest item_id={this.state.allEquippedItems[8].itemHash} className="helper"/>
+
+								<Manifest item_id={this.state.allEquippedItems[3].itemHash} className="rightHead"/>
+								<Manifest item_id={this.state.allEquippedItems[4].itemHash} className="rightGloves"/>
+								<Manifest item_id={this.state.allEquippedItems[5].itemHash} className="rightBody"/>
+								<Manifest item_id={this.state.allEquippedItems[6].itemHash} className="rightBoots"/>
+								<Manifest item_id={this.state.allEquippedItems[7].itemHash} className="rightCloak"/>
 							</div>
 						</div>
 					</div>
@@ -55,7 +63,7 @@ class Character extends Component {
 		else {
 			return (
 							<Modal open>
-										<Loader size='massive'>Loading</Loader>
+										<Loader size='massive'>Waiting for Bungie API...</Loader>
 							</Modal>
 			);
 		}
