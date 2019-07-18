@@ -1,0 +1,58 @@
+.pop-up-wrapper {
+  color: #f5f5f5;
+  background: rgba(17, 12, 21, 0.95);
+  text-align: left;
+  min-width: 350px;
+  width: 380px;
+}
+
+.item-header {
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+  color: #f5f5f5;
+  padding: 18px;
+}
+
+.item-footer{
+  padding: 18px;
+  color: rgba(245, 245, 245, 0.6);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.first-line {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.1em;
+}
+
+.second-line {
+  font-size: 17px;
+  line-height: 20px;
+  font-weight: normal;
+  opacity: 0.6;
+  padding-top: 10px;
+}
+
+#Legendary {
+  background: rgba(78, 50, 99, 0.9);
+}
+
+#Rare {
+  background: rgba(85, 127, 158, 0.9);
+}
+
+#Exotic {
+  background: rgba(206, 174, 50, 0.9);
+}
+
+#Uncommon {
+  background: rgba(47, 107, 60, 0.9);
+}
+
+#Common {
+  background: papayawhip;
+  color: black !important;
+}
