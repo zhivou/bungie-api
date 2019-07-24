@@ -23,4 +23,4 @@ export function getIcon(link) {
 }
 
 export const tempAPIKey = process.env.API_KEY;
-console.log(tempAPIKey);
+console.log(process.env.API_KEY);
