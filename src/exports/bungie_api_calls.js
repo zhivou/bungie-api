@@ -22,4 +22,4 @@ export function getIcon(link) {
   return `${baseUrl}/${link}`;
 }
 
-export const tempAPIKey = "acab7b216915446eb87946ea8e4ea6fc";
+export const tempAPIKey = process.env.API_KEY;
