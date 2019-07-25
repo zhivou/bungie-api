@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Loader, Modal } from 'semantic-ui-react'
 import './Character.scss';
-import { getAllEquippedItems, tempAPIKey } from '../exports/bungie_api_calls.js';
+import { getAllEquippedItems, callWith } from '../exports/bungie_api_calls.js';
 import Manifest from './Manifest'
 import Background from './pics/inventory_with_char.png'
 const axios = require('axios');
@@ -21,7 +21,7 @@ class Character extends Component {
 	componentDidMount() {
 		axios.get(`${getAllEquippedItems()}`, {
 			headers: {
-				"X-API-Key": tempAPIKey,
+				"X-API-Key": callWith,
 				"Content-Type": "application/json"
 			},
 			params: {
